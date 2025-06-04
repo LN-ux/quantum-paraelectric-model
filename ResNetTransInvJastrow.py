@@ -1,3 +1,18 @@
+import netket as nk
+import jax
+import jax.numpy as jnp
+import numpy as np
+from functools import partial
+from typing import Sequence, Callable, Union, Optional
+
+from flax.linen import Module, Conv, Dense, LayerNorm, gelu
+from flax.linen.dtypes import promote_dtype
+from jax.nn.initializers import zeros, normal
+from jax.tree_util import register_pytree_node_class
+
+from netket.graph import AbstractGraph
+from netket.utils.types import DType, NNInitFunc
+from netket.nn.masked_linear import default_kernel_init
 
 def _min_image_distance(x, extent):
     dis = -x[np.newaxis, :, :] + x[:, np.newaxis, :]
