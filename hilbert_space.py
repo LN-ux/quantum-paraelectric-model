@@ -1,37 +1,19 @@
 import netket as nk
-from netket.hilbert import HomogeneousHilbert
-from collections.abc import Callable
-from netket.hilbert import DiscreteHilbert
-from netket.utils import StaticRange
+from netket.hilbert import HomogeneousHilbert, DiscreteHilbert
 from netket.hilbert.constraint import DiscreteHilbertConstraint
-from netket.utils import struct, HashableArray, HashablePartial
-from netket.utils.types import PyTree, PRNGKeyT, DType, Array, NNInitFunc
+from netket.utils import struct, HashableArray
+from netket.utils.types import DType
 from netket.graph import AbstractGraph
 from netket.sampler import MetropolisRule
-from netket.jax.sharding import sharding_decorator
-from netket.nn.masked_linear import default_kernel_init
-import jax.numpy as jnp
-import numpy as np
-import jax
-from functools import partial
-
-import flax.linen as nn
-
-from netket.operator import DiscreteJaxOperator
 from netket.utils import dispatch
-from netket.jax import canonicalize_dtypes
+from netket.jax.sharding import sharding_decorator
+
+import jax
+import jax.numpy as jnp
 from jax.tree_util import register_pytree_node_class
 
-import flax.linen as nn
-import jax.numpy as jnp
-from jax.nn.initializers import zeros, normal
-from flax.linen.dtypes import promote_dtype
-from netket.utils.types import DType, Array, NNInitFunc
-
-from itertools import product
+import numpy as np
 from functools import partial
-from typing import (Sequence, Callable, Union, Optional)
-
 
 def min_image_distance(dist, extent):
     return dist - extent * np.rint(dist / extent)
