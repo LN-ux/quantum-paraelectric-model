@@ -104,10 +104,6 @@ def cartesian_to_polar(x):
 def polar_to_phase(x):
     return jnp.mod(jnp.log(x).imag, 2*np.pi)
 
-@jax.jit
-def phase_to_polar(x):
-    return jnp.exp(1j * x)
-
 def f(x, y):
     if (x, y) == (-1, 0):
         return 0
