@@ -95,11 +95,6 @@ def random_state(hilb: Clock,
     x = jax.random.choice(key, np.array(hilb.local_states, dtype=dtype), shape=(batches, 1))
     return jnp.repeat(x, hilb.size, axis=-1)
 
-
-@jax.jit
-def cartesian_to_polar(x):
-    return x.dot(np.array([1, 1j]))
-
 def f(x, y):
     if (x, y) == (-1, 0):
         return 0
