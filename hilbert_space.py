@@ -100,10 +100,6 @@ def random_state(hilb: Clock,
 def cartesian_to_polar(x):
     return x.dot(np.array([1, 1j]))
 
-@jax.jit
-def polar_to_phase(x):
-    return jnp.mod(jnp.log(x).imag, 2*np.pi)
-
 def f(x, y):
     if (x, y) == (-1, 0):
         return 0
