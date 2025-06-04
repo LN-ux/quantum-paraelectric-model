@@ -1,3 +1,18 @@
+import netket as nk
+from netket.hilbert import HomogeneousHilbert
+from netket.hilbert.constraint import DiscreteHilbertConstraint
+from netket.utils import struct, HashableArray
+from netket.utils.types import DType
+from netket.graph import AbstractGraph
+from netket.operator import DiscreteJaxOperator
+from netket.utils import dispatch
+from netket.jax import canonicalize_dtypes
+
+import jax
+import jax.numpy as jnp
+from jax.tree_util import register_pytree_node_class
+from functools import partial
+import numpy as np
 
 @register_pytree_node_class
 class TiO2Hamiltonian(DiscreteJaxOperator):
@@ -9,7 +24,6 @@ class TiO2Hamiltonian(DiscreteJaxOperator):
             t: float = 1.0,
             dtype: DType | None = None
             ):
-        # TODO: add checks 
         super().__init__(hilbert)
 
         J, t = jax.tree_util.tree_map(jnp.asarray, (J, t))
@@ -23,8 +37,6 @@ class TiO2Hamiltonian(DiscreteJaxOperator):
         self._max_conn = 1 + 2 * self._n_sites
 
         self._edges = jnp.asarray(graph.edges(), dtype=np.intp)
-        # TODO: I should consider also the case in which the Hilbert
-        # space is not constrained.
         self._forbidden_configurations = jnp.asarray(
             hilbert.constraint.forbidden_configurations, 
             dtype=np.intp
