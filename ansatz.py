@@ -3,6 +3,7 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 from functools import partial
+import flax.linen as nn
 from typing import Sequence, Callable, Union, Optional
 
 from flax.linen import Module, Conv, Dense, LayerNorm, gelu
