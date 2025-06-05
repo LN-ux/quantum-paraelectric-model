@@ -1,0 +1,2 @@
+{"n_dim": 2, "N": 8, "extent": [8, 8], "pbc": [true, true], "n_sites": 64, "J": 0.1, "depth": 4, "features": 12, "n_samples": 16384, "n_chains": 1024, "sweep_factor": 2, "n_sweeps": 64, "n_discard_per_chain": 5, "n_burnin": 15, "chunk_size": 1024, "n_iter": 5000, "lrate": 0.001, "dshift": 0.0005, "ham_dtype": "float64", "sampler_dtype": "int8", "model_dtype": "float64"}
+
