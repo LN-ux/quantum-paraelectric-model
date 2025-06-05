@@ -5,7 +5,8 @@ import numpy as np
 import netket as nk
 nk.config.netket_experimental_fft_autocorrelation = True
 
-from hamiltonian import Clock, TiO2Constraint, TiO2Hamiltonian, TiO2LocalRule
+from hamiltonian import TiO2Hamiltonian
+from hilbert_space import Clock, TiO2Constraint, TiO2LocalRule
 from ansatz import ResNetTransInvJastrow
 from jax.nn.initializers import normal
 
