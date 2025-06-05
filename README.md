@@ -14,4 +14,15 @@ Defines a TiO2Hamiltonian operator class for a 4-state clock model with constrai
 ## ansatz.py
 Defines ResNetTransInvJastrow, the neural network used to model the ground state. It follows the architecture introduced by Zakari Denis and Giuseppe Carleo in "Accurate neural quantum states for interacting lattice bosons" (arXiv:2404.07869, 2024).
 
+## main.py
+This is the main training script that runs variational Monte Carlo (VMC) optimization of the ground state. It performs the following:
+- Loads simulation parameters from a JSON file.
+- Constructs the constrained clock Hilbert space.
+- Defines the Hamiltonian and the local rule for sampling.
+- Instantiates the ResNetTransInvJastrow ansatz.
+- Sets up a NetKet MCState and VMC driver with SR preconditioning.
+- Logs observables (energy, polarization, local order) at each step.
+- Periodically saves model parameters.
 
+To run, at minimum:
+python main.py --parameters params.json --jobid your_jobid
