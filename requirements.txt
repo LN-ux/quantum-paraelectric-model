@@ -1,0 +1,6 @@
+jax==0.5.1
+netket==3.16.1.post1
+flax
+optax
+numpy
+scipy
