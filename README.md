@@ -24,8 +24,9 @@ This is the main training script that runs variational Monte Carlo (VMC) optimiz
 - Logs observables (energy, polarization, local order) at each step.
 - Periodically saves model parameters.
 
-## Environment
-This code was developed and tested using JAX v0.5.1 and NetKet v3.16.1.post1.
-
 To run, at minimum:
 python main.py --parameters params.json --jobid your_jobid
+
+## requirements.txt
+Contains the required dependencies. This code was developed and tested using JAX v0.5.1 and NetKet v3.16.1.post1.
+
