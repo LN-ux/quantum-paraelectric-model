@@ -7,7 +7,7 @@ from netket.graph import AbstractGraph
 from netket.sampler import MetropolisRule
 from netket.utils import dispatch
 from netket.jax.sharding import sharding_decorator
-from netket.hilbert import StaticRange
+from netket.utils import StaticRange
 
 import jax
 import jax.numpy as jnp
