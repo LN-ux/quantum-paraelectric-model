@@ -1,5 +1,7 @@
 # quantum-paraelectric-model
 
+Under the supervision of Dr. Zakari Denis and Prof. Giuseppe Carleo.
+
 This code implements a constrained 4-state quantum clock model on a 2D lattice inspired by the paraelectric-to-ferroelectric transitions in titanium dioxide (TiO₂).
 
 ## hilbert_space.py
@@ -24,5 +26,3 @@ This is the main training script that runs variational Monte Carlo (VMC) optimiz
 
 To run, at minimum:
 python main.py --parameters params.json --jobid your_jobid
-
-Under the supervision of Dr. Zakari Denis and Prof. Giuseppe Carleo
