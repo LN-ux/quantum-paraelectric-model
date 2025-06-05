@@ -14,6 +14,8 @@ from jax.tree_util import register_pytree_node_class
 from functools import partial
 import numpy as np
 
+from hilbert_space import Clock
+
 @register_pytree_node_class
 class TiO2Hamiltonian(DiscreteJaxOperator):
     def __init__(
