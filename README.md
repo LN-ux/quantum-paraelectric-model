@@ -7,8 +7,6 @@ Defines a custom Hilbert space for a 4-state clock model with a constraint inspi
 - Clock: a lattice of discrete clock states.
 - TiO2Constraint: enforces forbidden neighbor configurations inspired by the TiO₂ lattice geometry.
 - TiO2LocalRule: a metropolis rule for efficient sampling of valid configurations under the constraint.
-- random_state: a helper for generating valid random initial states.
 
-This module enables sampling and evolution of quantum states on a constrained lattice consistent with quantum paraelectric models.
 
 A translationally invariant residual CNN is used to model the ground state, following the architecture introduced by Zakari Denis and Giuseppe Carleo in "Accurate neural quantum states for interacting lattice bosons" (arXiv:2404.07869, 2024).
