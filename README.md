@@ -1,6 +1,6 @@
 # quantum-paraelectric-model
 
-This code is part of an implementation of a constrained 4-state quantum clock model on a 2D lattice inspired by the paraelectric-to-ferroelectric transitions in titanium dioxide (TiO₂).
+This code implements a constrained 4-state quantum clock model on a 2D lattice inspired by the paraelectric-to-ferroelectric transitions in titanium dioxide (TiO₂).
 
 ## hilbert_space.py
 Defines a custom Hilbert space for a 4-state clock model with a constraint inspired by TiO₂. This includes:
