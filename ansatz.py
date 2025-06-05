@@ -28,11 +28,6 @@ def _relative_position_indices(x, extent):
     unique_dis, idcs = np.unique(dis_flat, axis=0, return_inverse=True)
     return idcs.reshape(n, n)
 
-def _min_image_distance(x, extent):
-    dis = -x[np.newaxis, :, :] + x[:, np.newaxis, :]
-    dis = dis - extent * np.rint(dis / extent)
-    return dis
-
 
 def _distance_indices(x, extent):
     n = len(x)
@@ -52,7 +47,7 @@ class ResNetTransInvJastrow(nn.Module):
     kernel_size: Union[Sequence[int]]
     """Size of the convolutional filters."""
     padding: str = 'CIRCULAR'
-    """Type of padding. Must be set to 'CIRCULAR' for OBC and 'SAME' for OBC."""
+    """Type of padding. Use 'CIRCULAR' for PBC, 'SAME' for OBC."""
     use_bias: bool = True
     """if True uses a bias in all layers."""
     backflow_param_dtype: DType = float
@@ -109,10 +104,6 @@ class ResNetTransInvJastrow(nn.Module):
         d = np.linalg.norm(sd, ord=1, axis=-1).astype(int)
         kernel = self.param('Jastrow', self.jastrow_kernel_init, (2, 2, d_max+1), self.out_param_dtype)
         out = jnp.einsum('...im,mnij,...jn->...', x_tilde, kernel[..., d], x_tilde)
-
-        # d = _distance_indices(self.graph.positions, self.graph.extent).astype(int)
-        # jastrow = self.param('Jastrow', self.jastrow_kernel_init, (2, 2, d.max()+1), self.out_param_dtype)
-        # out = jnp.einsum('...im,mnij,...jn->...', x_tilde, jastrow[..., d], x_tilde)
 
         return out
 
