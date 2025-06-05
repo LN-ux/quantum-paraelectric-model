@@ -17,12 +17,12 @@ Defines ResNetTransInvJastrow, the neural network used to model the ground state
 ## main.py
 This is the main training script that runs variational Monte Carlo (VMC) optimization of the ground state. It performs the following:
 - Loads simulation parameters from a JSON file.
-- Constructs the constrained clock Hilbert space.
-- Defines the Hamiltonian and the local rule for sampling.
-- Instantiates the ResNetTransInvJastrow ansatz.
+- Constructs the constrained clock Hilbert space, defines the Hamiltonian and the local rule for sampling, and instantiates the ResNetTransInvJastrow ansatz.
 - Sets up a NetKet MCState and VMC driver with SR preconditioning.
 - Logs observables (energy, polarization, local order) at each step.
 - Periodically saves model parameters.
 
 To run, at minimum:
 python main.py --parameters params.json --jobid your_jobid
+
+Under the supervision of Dr. Zakari Denis and Prof. Giuseppe Carleo
